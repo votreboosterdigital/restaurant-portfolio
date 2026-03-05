@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Le Coin Masson – Bistro de quartier</title>
@@ -17,33 +18,29 @@
     nav { position:fixed; top:0; left:0; right:0; z-index:999; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 6%; background:rgba(250,247,242,.96); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
     .nav-logo { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--dark); text-decoration:none; }
     .nav-logo span { color:var(--accent); }
-    .nav-logo {
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-}
 
-.nav-logo-icon {
-  width:28px;
-  height:28px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,.08);
-  background:rgba(255,255,255,.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 3px 8px rgba(0,0,0,.04);
-}
+    .nav-logo { display:flex; align-items:center; gap:.6rem; }
+    .nav-logo-icon {
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:rgba(255,255,255,.7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 3px 8px rgba(0,0,0,.04);
+    }
+    .nav-logo-icon svg {
+      width:18px;
+      height:18px;
+      stroke:var(--accent);
+      stroke-width:1.7;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
 
-.nav-logo-icon svg {
-  width:18px;
-  height:18px;
-  stroke:var(--accent);
-  stroke-width:1.7;
-  fill:none;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
     .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
     .nav-links a { text-decoration:none; color:var(--dark); font-size:.88rem; font-weight:500; transition:color .2s; }
     .nav-links a:hover { color:var(--accent); }
@@ -52,19 +49,19 @@
 
     #hero { min-height:100vh; display:flex; align-items:center; padding:0 6%; background:linear-gradient(to right,rgba(250,247,242,1) 42%,rgba(250,247,242,.1) 100%),url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85') center/cover no-repeat; }
     .hero-content { max-width:570px; }
-.hero-badge {
-  display:inline-block;
-  background:var(--accent2);
-  color:var(--dark);
-  font-size:.73rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  padding:.35rem 1rem;
-  border-radius:50px;
-  margin-bottom:1.5rem;
-  margin-top:1.5rem; /* AJOUT */
-}
+    .hero-badge {
+      display:inline-block;
+      background:var(--accent2);
+      color:var(--dark);
+      font-size:.73rem;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding:.35rem 1rem;
+      border-radius:50px;
+      margin-bottom:1.5rem;
+      margin-top:1.5rem;
+    }
     .hero-content h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,5vw,4.2rem); line-height:1.1; margin-bottom:1.3rem; }
     .hero-content h1 em { font-style:normal; color:var(--accent); }
     .hero-content p { font-size:1.05rem; color:var(--gray); max-width:450px; margin-bottom:2.5rem; }
@@ -171,18 +168,73 @@
     .footer-bottom p { font-size:.82rem; color:rgba(255,255,255,.4); }
     .footer-bottom a { color:var(--accent); text-decoration:none; }
 
+    /* TABLETTE */
     @media(max-width:900px) {
-      #about,.resa-grid,#infos,.footer-top { grid-template-columns:1fr; gap:3rem; }
+      section { padding:4rem 5%; }
+
+      #about,.resa-grid,#infos,.footer-top {
+        grid-template-columns:1fr;
+        gap:3rem;
+      }
+
       .avis-grid { grid-template-columns:1fr; }
       .gallery-grid { grid-template-columns:1fr 1fr; }
       .gallery-grid img:first-child { grid-column:span 2; }
+
       .nav-links { display:none; }
+
+      #hero {
+        padding-top:6rem;
+        padding-bottom:3.5rem;
+      }
     }
+
+    /* MOBILE */
     @media(max-width:600px) {
+      section { padding:3.5rem 5%; }
+
+      #hero {
+        min-height:auto;
+        padding-top:6.5rem;
+        padding-bottom:3.5rem;
+      }
+
+      .hero-content h1 {
+        font-size:2.2rem;
+      }
+
+      .hero-content p {
+        font-size:.95rem;
+      }
+
+      .hero-btns {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero-stats {
+        gap:1.2rem;
+        flex-direction:column;
+      }
+
+      .menu-panel.active {
+        grid-template-columns:1fr;
+        gap:1rem;
+      }
+
+      .menu-card {
+        padding:1.2rem;
+      }
+
       .gallery-grid { grid-template-columns:1fr; }
       .gallery-grid img:first-child { grid-column:span 1; }
-      .hero-stats { gap:1.5rem; }
+
       .form-row { grid-template-columns:1fr; }
+
+      .nav-cta {
+        padding:.6rem 1.6rem !important;
+        font-size:.9rem;
+      }
     }
   </style>
 </head>
@@ -191,19 +243,19 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-  <span class="nav-logo-icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24">
-      <!-- Fourchette -->
-      <path d="M6 3v6a2 2 0 0 0 2 2v9" />
-      <path d="M4 3v4" />
-      <path d="M8 3v4" />
-      <!-- Couteau -->
-      <path d="M14 3l2 4v13" />
-      <path d="M18 4.5c0 4 -2 5.5 -2 5.5" />
-    </svg>
-  </span>
-  Le Coin <span>Masson</span>
-</a>
+    <span class="nav-logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <!-- Fourchette -->
+        <path d="M6 3v6a2 2 0 0 0 2 2v9" />
+        <path d="M4 3v4" />
+        <path d="M8 3v4" />
+        <!-- Couteau -->
+        <path d="M14 3l2 4v13" />
+        <path d="M18 4.5c0 4 -2 5.5 -2 5.5" />
+      </svg>
+    </span>
+    Le Coin <span>Masson</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">Notre histoire</a></li>
     <li><a href="#menu">Menu</a></li>
@@ -517,10 +569,10 @@
   </div>
   <div class="map-wrap">
     <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.793885593379!2d-73.5709853!3d45.5488362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91f6f4b7e8e8d%3A0x0000000000000000!2s3012%20Rue%20Masson%2C%20Montr%C3%A9al%2C%20QC%20H1Y%201X6!5e0!3m2!1sfr!2sca!4v1700000000000"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.793885593379!2d-73.5709853!3d45.5488362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91f6f4b7e8e8d%3A0x0000000000000000!2s3012%20Rue%20Masson%2C%20Montr%C3%A9al%2C%20QC%20H1Y%201X6!5e0!3m2!1sfr!2sca!4v1700000000000"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
 </section>
 
